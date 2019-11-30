@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/viajes"
+        android:icon="@drawable/ic_view_list_24px"
+        android:title="Viajes" />
+
+    <item
+        android:id="@+id/examina"
+        android:icon="@drawable/ic_visibility_black_24dp"
+        android:title="Examina" />
+
+    <item
+        android:id="@+id/friends"
+        android:icon="@drawable/ic_supervisor_account_black_24dp"
+        android:title="Amigos" />
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_face_black_24dp"
+        android:title="Perfil" />
+
+</menu>
