@@ -6,6 +6,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.TravelsFragment">
 
+    <ProgressBar
+        android:id="@+id/pbLoader"
+        android:visibility="gone"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:indeterminateTint="#753AFA"
+        android:layout_centerInParent="true"/>
+
 
     <LinearLayout
         android:id="@+id/viajesPopup"
@@ -27,6 +35,8 @@
             android:textSize="20sp"
             android:lines="1"
             android:textColor="#000"
+            tools:ignore="MissingPrefix"
+            fontPath="fonts/AvertaBlack.ttf"
             android:text="¡Ups! ¿Aún no viajas?"/>
         <TextView
             android:layout_width="180dp"
@@ -34,8 +44,181 @@
             android:textAllCaps="false"
             android:gravity="center"
             android:textSize="13sp"
+            android:textColor="#666666"
             android:text="Ingresa a nuestra web y disfruta de tu próximo viaje"/>
     </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/svTravels"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:descendantFocusability="blocksDescendants"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Viajes"
+                tools:ignore="MissingPrefix"
+                fontPath="fonts/AvertaBlack.ttf"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textAllCaps="false"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Presiona en el card para más detalles"
+                android:textSize="15sp"
+                android:textColor="#666666"
+                android:textAllCaps="false"
+                android:layout_marginBottom="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvHuaraz"
+                android:transitionName="@string/simple_fragment_transition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                app:cardCornerRadius="7dp"
+                app:cardElevation="2dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/huaraz" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="Huaraz 🏔️"
+                            tools:ignore="MissingPrefix"
+                            fontPath="fonts/AvertaBlack.ttf"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            android:textColor="@android:color/black" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:gravity="center_vertical"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="El monte vendra a ti"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            android:textColor="#666666" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvIquitos"
+                android:transitionName="@string/simple_fragment_transition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                app:cardCornerRadius="7dp"
+                app:cardElevation="2dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/iquitos" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="Iquitos 🌴"
+                            tools:ignore="MissingPrefix"
+                            fontPath="fonts/AvertaBlack.ttf"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            android:textColor="@android:color/black" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:gravity="center_vertical"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Una gran aventura amazonica te espera"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            android:textColor="#666666" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fbAddViaje"

@@ -1,5 +1,6 @@
 package com.example.llego;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import com.example.llego.Fragments.TravelsFragment;
@@ -13,7 +14,17 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import io.github.inflationx.calligraphy3.CalligraphyConfig;
+import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
+import io.github.inflationx.viewpump.ViewPump;
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
+
 public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
+    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -47,6 +58,13 @@ public class MainActivity extends AppCompatActivity {
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         changeScreen(new TravelsFragment());
+
+        ViewPump.init(ViewPump.builder()
+        .addInterceptor(new CalligraphyInterceptor(
+                new CalligraphyConfig.Builder().setDefaultFontPath("fonts/BrixSansW01Light.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        )).build());
     }
 
     public void changeScreen(Fragment fragment) {

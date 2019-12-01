@@ -24,6 +24,9 @@
         android:layout_height="wrap_content"
         android:background="?android:attr/windowBackground"
         android:layout_alignParentBottom="true"
+        android:fitsSystemWindows="true"
+        app:labelVisibilityMode="labeled"
+        app:itemTextAppearanceActive="@style/Widget.BottomNavigationView"
         app:menu="@menu/bottom_nav_menu" />
 
 </RelativeLayout>

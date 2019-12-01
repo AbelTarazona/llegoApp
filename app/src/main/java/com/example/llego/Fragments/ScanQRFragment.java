@@ -5,6 +5,7 @@ import android.Manifest;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -34,7 +35,7 @@ public class ScanQRFragment extends Fragment{
     }
 
     ZXingScannerView scannerView;
-
+    Bundle bundle;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,7 +54,10 @@ public class ScanQRFragment extends Fragment{
                         scannerView.setResultHandler(new ZXingScannerView.ResultHandler() {
                             @Override
                             public void handleResult(Result rawResult) {
-                                Toast.makeText(getContext(),rawResult.getText(),Toast.LENGTH_SHORT).show();
+                                bundle = new Bundle();
+                                bundle.putString("result",rawResult.getText());
+                                changeScreen(new TravelsFragment(), bundle);
+                                //Toast.makeText(getContext(),rawResult.getText(),Toast.LENGTH_SHORT).show();
                             }
                         });
                         scannerView.startCamera();
@@ -78,6 +82,16 @@ public class ScanQRFragment extends Fragment{
     public void onStop() {
         scannerView.stopCamera();
         super.onStop();
+    }
+
+    public void changeScreen(Fragment fragment, Bundle bundle) {
+        /*Bundle bundleToAlert = new Bundle();
+        bundleToAlert.putBundle("data",bundle);*/
+        fragment.setArguments(bundle);
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fl_main, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 
 /*    @Override
