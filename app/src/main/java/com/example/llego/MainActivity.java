@@ -3,6 +3,7 @@ package com.example.llego;
 import android.content.Context;
 import android.os.Bundle;
 
+import com.example.llego.Fragments.ShareFriendsFragment;
 import com.example.llego.Fragments.TravelsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.examina:
                     return true;
                 case R.id.friends:
+                    changeScreen(new ShareFriendsFragment());
                     return true;
                 case R.id.profile:
                     return true;

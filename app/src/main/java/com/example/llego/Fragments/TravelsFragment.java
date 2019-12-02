@@ -36,10 +36,8 @@ public class TravelsFragment extends Fragment {
     }
 
     FloatingActionButton fbAdd;
-    LinearLayout lyPopupViajes;
     Bundle bundle;
     ProgressBar pbLoader;
-    NestedScrollView svTravels;
     CardView cvIquitos;
     Boolean isTravelLoaded = false;
 
@@ -49,9 +47,7 @@ public class TravelsFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_travels, container, false);
         fbAdd = v.findViewById(R.id.fbAddViaje);
-        lyPopupViajes = v.findViewById(R.id.viajesPopup);
         pbLoader = v.findViewById(R.id.pbLoader);
-        svTravels = v.findViewById(R.id.svTravels);
 
         bundle = this.getArguments();
 
@@ -100,13 +96,11 @@ public class TravelsFragment extends Fragment {
 
             if (isTravelLoaded) {
                 pbLoader.setVisibility(View.GONE);
-                svTravels.setVisibility(View.VISIBLE);
-                lyPopupViajes.setVisibility(View.GONE);
+                cvIquitos.setVisibility(View.VISIBLE);
                 return;
             }
 
             pbLoader.setVisibility(View.VISIBLE);
-            lyPopupViajes.setVisibility(View.GONE);
 
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -115,7 +109,7 @@ public class TravelsFragment extends Fragment {
                     //Do something after 100ms
                     //startActivity(i);
                     pbLoader.setVisibility(View.GONE);
-                    svTravels.setVisibility(View.VISIBLE);
+                    cvIquitos.setVisibility(View.VISIBLE);
                 }
             }, 2000);
             isTravelLoaded = true;
